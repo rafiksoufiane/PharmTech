@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <group
+      android:id="@+id/group_options"
+      android:checkableBehavior="single">
+    <item
+        android:id="@+id/study"
+        android:icon="@drawable/icn_book"
+        android:title="Study" />
+    <item
+        android:id="@+id/quiz"
+        android:icon="@drawable/icn_quiz"
+        android:title="Quiz"/>
+    <item
+        android:id="@+id/review"
+        android:icon="@drawable/icn_review"
+        android:title="Review"/>
+    <item
+        android:id="@+id/filter"
+        android:icon="@drawable/icn_filter_list"
+        android:title="Filter"/>
+    <item
+        android:id="@+id/sort"
+        android:icon="@drawable/icn_sort_by_alpha"
+        android:title="Sort"/>
+  </group>
+  <group android:id="@+id/group_settings">
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/icn_about"
+        android:title="About"/>
+
+    <item
+        android:id="@+id/legal"
+        android:icon="@drawable/icn_legal"
+        android:title="Legal"/>
+  </group>
+</menu>

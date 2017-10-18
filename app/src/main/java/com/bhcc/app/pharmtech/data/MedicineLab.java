@@ -33,7 +33,7 @@ public class MedicineLab {
         if (medicineLab == null) {
             medicineLab = new MedicineLab(context);
         }
-        return medicineLab;https://github.com/rafiksoufiane/PharmTech
+        return medicineLab;
     }
 
     /**

@@ -1,6 +1,8 @@
 package com.bhcc.app.pharmtech.data;
 
 
+//steven testing git pushing
+
 import com.bhcc.app.pharmtech.data.model.Medicine;
 
 import android.content.Context;
@@ -31,7 +33,7 @@ public class MedicineLab {
         if (medicineLab == null) {
             medicineLab = new MedicineLab(context);
         }
-        return medicineLab;
+        return medicineLab;https://github.com/rafiksoufiane/PharmTech
     }
 
     /**

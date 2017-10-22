@@ -175,6 +175,7 @@ public class MedicineLab {
      * To get study topics
      * @return List of Study Topics
      */
+    //This is called by FilterFragment, when getting a list of study topics -sc
     public List<String> getStudyTopics() {
         MedicineCursorWrapper cursor = rawQueryCrimes(
                 "SELECT DISTINCT " + MedicineSchema.MedicineTable.Cols.STUDY_TOPIC + " FROM " +
@@ -239,6 +240,7 @@ public class MedicineLab {
      * @param whereArgs
      * @param orderBy
      */
+    //called by FilterFragment to returned SQL vals
     public void updateMedicineLab(String whereClause, String[] whereArgs, String orderBy) {
         MedicineCursorWrapper cursor = queryCrimes(whereClause, whereArgs, orderBy);
 

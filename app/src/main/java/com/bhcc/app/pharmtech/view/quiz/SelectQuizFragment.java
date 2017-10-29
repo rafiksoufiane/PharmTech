@@ -109,6 +109,7 @@ public class SelectQuizFragment extends Fragment {
         List<String> studyTopic = medicineLab.getStudyTopics();
         Log.i("test", studyTopic.toString());
 
+        // making all the studyTopics checkbox elements
         for (int i = 0; i < studyTopic.size(); i++) {
             String topic = studyTopic.get(i);
             AppCompatCheckBox checkBox = new AppCompatCheckBox(getContext());
@@ -247,6 +248,8 @@ public class SelectQuizFragment extends Fragment {
                     String[] topicList = toStringArray(studyTopicCheckedList);
                     String[] fieldList = toStringArray(studyFieldCheckedList);
 
+                    // separating calls to fill in the blank portion and
+                    // Multiple choice
                     if (spChooseQuizStyle.getSelectedItem().toString().equals("Fill in the blank")) {
                         QuizFragment fragment = QuizFragment
                                 .newInstance(topicList, fieldList, numOfQuestions);
@@ -340,7 +343,7 @@ public class SelectQuizFragment extends Fragment {
         tempStrings = checkedList.toArray(tempStrings);
         Log.i("test", Arrays.asList(tempStrings).toString());
 
-        String whereArgs = "(";
+        String whereArgs = "(";  //  ??
         for (int i = 0; i < tempStrings.length; i++) {
             whereArgs += "?";
             if (i != tempStrings.length - 1) {

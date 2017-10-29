@@ -42,8 +42,8 @@ public class QuizFragment extends Fragment {
     private static final String EXTRA_NUM_QUIZ = "extra: num quiz";
 
     // Static variables
-    private static int numQuiz;
-    private static int index = 0;
+    private static int numQuiz; // number of questions
+    private static int index = 0; // points to current question
     private static int done = 0;
     private static int correct = 0;
 
@@ -113,6 +113,8 @@ public class QuizFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.activity_quiz, container, false);
+
+        // attaching UI elements
         mLinearLayout = (LinearLayout) view.findViewById(R.id.quiz_activity_linear_layout);
         mSubmitButtonLayout = (LinearLayout) view.findViewById(
                 R.id.quiz_activity_linear_layout_submit_button);
@@ -133,6 +135,8 @@ public class QuizFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // writing to external file ??
         File reviewInfo = new File(getActivity().getFilesDir(), MainActivity.fileName);
         try {
             PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter(reviewInfo, true)));
@@ -220,10 +224,10 @@ public class QuizFragment extends Fragment {
         medicines = findMedicinesQuiz(topicList);
         Collections.shuffle(medicines);
         medicines = medicines.subList(0, numQuiz);
-        Log.i("test1", String.valueOf(medicines.size()));
+        Log.i("test1", String.valueOf(medicines.size())); // same as numQuiz
 
         for (Medicine medicine : medicines) {
-            Log.i("test1", medicine.getGenericName());
+            Log.i("test1", medicine.getGenericName()); // medicines that are going to be asked about
         }
         for (int i = 0; i < fieldList.length; i++) {
             Log.i("test1", fieldList[i]);

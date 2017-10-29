@@ -137,11 +137,11 @@ public class MedicineListFragment extends Fragment {
 
                 // Where argument
                 String[] args = new String[1];
-                args[0] = s + "%";
-                Log.i("Test", args[0]);
+                args[0] = s + "%"; // why adding the % at the end???
+                Log.i("Test", args[0]); // logging the query text
 
 
-                // update the list
+                // update the list with what is in the search bar
                 MedicineLab.get(getContext())
                         .updateMedicineLab(MedicineSchema.MedicineTable.Cols.GENERIC_NAME + " LIKE ? ",
                                 args, MedicineSchema.MedicineTable.Cols.GENERIC_NAME);
@@ -159,7 +159,7 @@ public class MedicineListFragment extends Fragment {
      * To update UI
      */
     private void updateUI() {
-        // set up the adapter w/ new lists
+        // set up the adapter with new lists
         MedicineLab medicineLab = MedicineLab.get(getActivity());
         List<Medicine> medicines = medicineLab.getMedicines();
         medicineAdapter = new MedicineAdapter(medicines);

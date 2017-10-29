@@ -78,7 +78,7 @@ public class CardFrontFragment extends Fragment {
 
         try {
             String fileName = medicine.getGenericName().toLowerCase();
-            if (fileName.contains("/")) {
+            if (fileName.contains("/")) {                                   // preparing audio filename
                 StringBuilder stringBuilder = new StringBuilder(fileName);
                 stringBuilder.deleteCharAt(fileName.indexOf('/'));
                 stringBuilder.deleteCharAt(fileName.indexOf('-') - 1);
@@ -106,9 +106,11 @@ public class CardFrontFragment extends Fragment {
                         fileName = stringBuilder.toString();
                         Log.i("test", fileName);
                     }
+                    // setting up resource Id for audio file, with filename, in the raw folder
+                    // from the current package
                     int resID = getResources().getIdentifier(fileName, "raw", getActivity().getPackageName());
                     final MediaPlayer myMediaPlayer = MediaPlayer.create(getActivity(), resID);
-                    myMediaPlayer.start();
+                    myMediaPlayer.start(); // play audio
                 } catch (Exception ex) {
                     Toast.makeText(getActivity(), "No audio file for this medicine", Toast.LENGTH_SHORT).show();
                 }

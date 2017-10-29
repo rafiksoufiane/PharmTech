@@ -129,9 +129,10 @@ public class MainActivity extends AppCompatActivity
         dialog.setContentView(R.layout.choose_sorting_dialog);
 
         List<String> stringList=new ArrayList<>();  // list to hold choices
-        // add choices
-        stringList.add("Ascending");
-        stringList.add("Descending");
+
+        // add choices,  string resources
+        stringList.add(getString(R.string.ascending));
+        stringList.add(getString(R.string.descending));
 
         // Radio group to hold radio buttons
         final RadioGroup rg = (RadioGroup) dialog.findViewById(R.id.radio_group);
@@ -144,7 +145,7 @@ public class MainActivity extends AppCompatActivity
 
         RadioButton rbDescending = new RadioButton(this);
         rbDescending.setText(stringList.get(DESCENDING_ID));
-        rbDescending.setId(DESCENDING_ID);
+        rbDescending.setId(DESCENDING_ID); // ?? inspect error
         rg.addView(rbDescending);
 
         TextView tvOK = (TextView) dialog.findViewById(R.id.choose_sorting_ok_button);

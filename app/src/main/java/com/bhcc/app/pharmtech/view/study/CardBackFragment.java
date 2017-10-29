@@ -72,6 +72,8 @@ public class CardBackFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_card_back, container, false);
+
+        // getting and setting values
         TextView mBrandName = (TextView) rootView.findViewById(R.id.medicine_brand_name_textview);
         mBrandName.setText("Brand Name: " + medicine.getBrandName());
 

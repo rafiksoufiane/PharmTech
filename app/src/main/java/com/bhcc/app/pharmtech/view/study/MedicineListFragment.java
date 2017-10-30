@@ -53,7 +53,7 @@ public class MedicineListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_medicine_list, container, false);
-        medicineListRecyclerView = (RecyclerView) view;
+        medicineListRecyclerView = (RecyclerView) view.findViewById(R.id.medicine_recycler_view);
         medicineListRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         // update UI

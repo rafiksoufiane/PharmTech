@@ -74,23 +74,26 @@ public class CardBackFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_card_back, container, false);
 
         // getting and setting values
+        TextView mGernericName = (TextView) rootView.findViewById(R.id.medicine_gerneric_name_textview);
+        mGernericName.setText(medicine.getGenericName());
+
         TextView mBrandName = (TextView) rootView.findViewById(R.id.medicine_brand_name_textview);
-        mBrandName.setText("Brand Name: " + medicine.getBrandName());
+        mBrandName.setText(medicine.getBrandName());
 
         TextView mPurpose = (TextView) rootView.findViewById(R.id.medicine_purpose_textview);
-        mPurpose.setText("Purpose: " + medicine.getPurpose());
+        mPurpose.setText(medicine.getPurpose());
 
         TextView mCategory = (TextView) rootView.findViewById(R.id.medicine_category_textview);
-        mCategory.setText("Category: " + medicine.getCategory());
+        mCategory.setText(medicine.getCategory());
 
         TextView mDeaSch = (TextView) rootView.findViewById(R.id.medicine_deaSch_textview);
-        mDeaSch.setText("DeaSch: " + medicine.getDeaSch());
+        mDeaSch.setText(medicine.getDeaSch());
 
         TextView mSpecial = (TextView) rootView.findViewById(R.id.medicine_special_textview);
-        mSpecial.setText("Special: " + medicine.getSpecial());
+        mSpecial.setText( medicine.getSpecial());
 
         TextView mStudyTopic = (TextView) rootView.findViewById(R.id.medicine_study_topic_textview);
-        mStudyTopic.setText("Study Topic: " + medicine.getStudyTopic());
+        mStudyTopic.setText( medicine.getStudyTopic());
 
 
         // Note Part // get note from database

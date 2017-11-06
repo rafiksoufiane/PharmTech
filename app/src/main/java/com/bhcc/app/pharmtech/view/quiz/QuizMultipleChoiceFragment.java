@@ -114,8 +114,6 @@ public class QuizMultipleChoiceFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.activity_quiz, container, false);
-
-        // attaching UI elements
         mLinearLayout = (LinearLayout) view.findViewById(R.id.quiz_activity_linear_layout);
         mSubmitButtonLayout = (LinearLayout) view.findViewById(
                 R.id.quiz_activity_linear_layout_submit_button);
@@ -199,7 +197,7 @@ public class QuizMultipleChoiceFragment extends Fragment {
         done = 0;
         correct = 0;
 
-        // get all medicines  -- why get all, not handled like fill in the blank??
+        // get all medicines
         allMedicines = MedicineLab.get(getActivity()).getSpecificMedicines(null, null, MedicineSchema.MedicineTable.Cols.GENERIC_NAME);
 
         // set up lists
@@ -287,9 +285,6 @@ public class QuizMultipleChoiceFragment extends Fragment {
             int randomField = Math.abs(randomNumber.nextInt() % fieldList.length);
             Log.i("test1", String.valueOf(randomField));
 
-            // ?? change to string place holder and have multiple possibilities for the questions
-            // What is the ... ?
-            // for ... ?
             strQuestion[index] = "What is the " + fieldList[randomField] + " of " +
                     medicines.get(index).getGenericName() + "/" + medicines.get(index).getBrandName();
 

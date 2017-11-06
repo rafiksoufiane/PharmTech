@@ -45,7 +45,6 @@ public class CardActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
 
-        // getting medicine generic name from MedicineListFragment
         String medicineGenericName = getIntent().getStringExtra(EXTRA_MEDICINE_GENERIC_NAME);
         mMedicines = MedicineLab.get(this).getMedicines();
 
@@ -53,7 +52,6 @@ public class CardActivity extends Activity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setAdapter(adapter);
 
-        // looking through the list using generic name to set the medicine
         for (int i = 0; i < mMedicines.size(); i++) {
             if (mMedicines.get(i).getGenericName().equals(medicineGenericName)) {
                 viewPager.setCurrentItem(i);

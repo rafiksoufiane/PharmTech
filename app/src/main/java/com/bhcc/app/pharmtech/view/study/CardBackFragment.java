@@ -72,11 +72,14 @@ public class CardBackFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_card_back, container, false);
+<<<<<<< HEAD
 
         // getting and setting values
         TextView mGernericName = (TextView) rootView.findViewById(R.id.medicine_gerneric_name_textview);
         mGernericName.setText(medicine.getGenericName());
 
+=======
+>>>>>>> parent of 830921a... added comments to the medicineList, quiz, and the sort Dialog, MTD
         TextView mBrandName = (TextView) rootView.findViewById(R.id.medicine_brand_name_textview);
         mBrandName.setText(medicine.getBrandName());
 

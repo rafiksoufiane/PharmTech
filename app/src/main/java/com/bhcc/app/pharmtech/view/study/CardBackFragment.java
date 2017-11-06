@@ -75,28 +75,31 @@ public class CardBackFragment extends Fragment {
 <<<<<<< HEAD
 
         // getting and setting values
+<<<<<<< HEAD
         TextView mGernericName = (TextView) rootView.findViewById(R.id.medicine_gerneric_name_textview);
         mGernericName.setText(medicine.getGenericName());
 
 =======
 >>>>>>> parent of 830921a... added comments to the medicineList, quiz, and the sort Dialog, MTD
+=======
+>>>>>>> parent of 9408ccb... modified fragment_card_back.xml. change somecode in cardBackFragment.java to work with new UI.
         TextView mBrandName = (TextView) rootView.findViewById(R.id.medicine_brand_name_textview);
-        mBrandName.setText(medicine.getBrandName());
+        mBrandName.setText("Brand Name: " + medicine.getBrandName());
 
         TextView mPurpose = (TextView) rootView.findViewById(R.id.medicine_purpose_textview);
-        mPurpose.setText(medicine.getPurpose());
+        mPurpose.setText("Purpose: " + medicine.getPurpose());
 
         TextView mCategory = (TextView) rootView.findViewById(R.id.medicine_category_textview);
-        mCategory.setText(medicine.getCategory());
+        mCategory.setText("Category: " + medicine.getCategory());
 
         TextView mDeaSch = (TextView) rootView.findViewById(R.id.medicine_deaSch_textview);
-        mDeaSch.setText(medicine.getDeaSch());
+        mDeaSch.setText("DeaSch: " + medicine.getDeaSch());
 
         TextView mSpecial = (TextView) rootView.findViewById(R.id.medicine_special_textview);
-        mSpecial.setText( medicine.getSpecial());
+        mSpecial.setText("Special: " + medicine.getSpecial());
 
         TextView mStudyTopic = (TextView) rootView.findViewById(R.id.medicine_study_topic_textview);
-        mStudyTopic.setText( medicine.getStudyTopic());
+        mStudyTopic.setText("Study Topic: " + medicine.getStudyTopic());
 
 
         // Note Part // get note from database

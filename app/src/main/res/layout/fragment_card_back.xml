@@ -1,237 +1,110 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimaryDark">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_green_dark">
 
-
-    <ImageView
-        android:id="@+id/imageViewIcon"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_action_name"
-        />
-
-    <TextView
-        android:id="@+id/gernericName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_toRightOf="@id/imageViewIcon"
-        android:text="@string/drug_id"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/subtitle_text"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-
-    <TextView
-        android:id="@+id/medicine_gerneric_name_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/gernericName"
-        android:layout_marginBottom="8dp"
-        android:layout_toRightOf="@id/imageViewIcon"
-        android:text="TextView"
-        android:textColor="@android:color/white"
-
-        android:textSize="@dimen/title_text"/>
-
-    <RelativeLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/medicine_gerneric_name_textview"
-        android:layout_marginLeft="16dp"
+        android:layout_gravity="center"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/brand_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/medicine_brand_name_textview"
-            android:layout_alignParentLeft="true"
-            android:text="@string/drug_name"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/subtitle_text"/>
 
         <TextView
             android:id="@+id/medicine_brand_name_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/deaSchedule"
             android:text="@string/medicine_name_textview"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/title_text"/>
-
-        <TextView
-            android:id="@+id/purpose"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/medicine_purpose_textview"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/medicine_brand_name_textview"
-            android:text="@string/purpose"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/subtitle_text"/>
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/medicine_purpose_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/medicine_brand_name_textview"
-            android:layout_toRightOf="@id/deaSchedule"
             android:text="@string/medicine_name_textview"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/title_text"/>
-
-        <TextView
-            android:id="@+id/category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/medicine_category_textview"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/medicine_purpose_textview"
-            android:text="@string/category"
-            android:textColor="@android:color/white"
-
-            android:textSize="@dimen/subtitle_text"/>
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/medicine_category_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/medicine_purpose_textview"
-            android:layout_toRightOf="@id/deaSchedule"
             android:text="@string/medicine_name_textview"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/title_text"/>
-
-        <TextView
-            android:id="@+id/deaSchedule"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/medicine_deaSch_textview"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/medicine_category_textview"
-            android:layout_marginRight="16dp"
-            android:text="@string/dea_schedule"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/subtitle_text"/>
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/medicine_deaSch_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/medicine_category_textview"
-            android:layout_toRightOf="@id/deaSchedule"
             android:text="@string/medicine_name_textview"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/title_text"/>
-
-        <TextView
-            android:id="@+id/special"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/medicine_special_textview"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/medicine_deaSch_textview"
-            android:text="@string/special"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/subtitle_text"/>
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/medicine_special_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/medicine_deaSch_textview"
-            android:layout_toRightOf="@id/deaSchedule"
             android:text="@string/medicine_name_textview"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/title_text"/>
-
-        <TextView
-            android:id="@+id/studyTopic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/medicine_study_topic_textview"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/medicine_special_textview"
-            android:text="@string/study_topic"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/subtitle_text"/>
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/medicine_study_topic_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/medicine_special_textview"
-            android:layout_marginBottom="8dp"
-            android:layout_toRightOf="@id/deaSchedule"
             android:text="@string/medicine_name_textview"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/title_text"/>
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/medicine_note_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/medicine_study_topic_textview"
-            android:maxHeight="300dp"
             android:text="@string/medicine_name_textview"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/title_text"/>
+            android:textSize="20dp" />
 
+        <EditText
+            android:id="@+id/medicine_note_edit_textview"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
+            android:hint="Edit your note"
+            android:padding="5dp"
+            android:textColor="@android:color/black" />
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/editBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/medicine_note_edit_textview"
+            android:text="Save Edit" />
+
+    </LinearLayout>
 
 
     <TextView
         android:id="@+id/flip_text_view_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
         android:layout_gravity="right|top"
-        android:layout_margin="16dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
         android:text="Flip"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/title_text"/>
-
-    <EditText
-        android:id="@+id/medicine_note_edit_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/editBtn"
-        android:layout_alignParentLeft="true"
-        android:layout_margin="16dp"
-        android:background="@android:color/white"
-        android:hint="Edit your note"
-        android:padding="16dp"
-        android:textColor="@android:color/black"/>
-
-    <Button
-        android:id="@+id/editBtn"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
-        android:text="Save Edit"/>
+        android:textSize="20dp" />
 
     <ImageView
         android:id="@+id/play_audio_button_back"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
         android:background="@null"
         android:elevation="3dp"
-        android:src="@drawable/icn_play_solid"/>
+        android:src="@drawable/icn_play_solid" />
 
-</RelativeLayout>
+</FrameLayout>

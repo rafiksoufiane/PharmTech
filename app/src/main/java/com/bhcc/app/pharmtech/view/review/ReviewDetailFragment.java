@@ -56,7 +56,7 @@ public class ReviewDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         // Read data from the file
-        // Store each line to the string val
+        // Store each line to the string
         fileName = getArguments().getSerializable(EXTRA_FILE_NAME).toString();
         File file = new File(getActivity().getFilesDir(), fileName);
         String temp = "\n";
@@ -67,15 +67,13 @@ public class ReviewDetailFragment extends Fragment {
                 temp += scanner.nextLine() + '\n';
             }
         }
-        //exception block
         catch (Exception ex) {}
 
-        // Set up the views, and link it with the FRAGMENT_REVIEW_DETAIL xlm file
+        // Set up views
         View view = inflater.inflate(R.layout.fragment_review_detail, container, false);
 
-        // Set data from the file
+        // Set data from the file to the text view
         mReviewDetail = (TextView) view.findViewById(R.id.text_view_quiz_detail);
-        //set the text with the string val
         mReviewDetail.setText(temp);
 
         // Inflate the layout for this fragment

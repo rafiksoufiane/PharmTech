@@ -72,6 +72,17 @@ public class CardBackFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_card_back, container, false);
+<<<<<<< HEAD
+
+        // getting and setting values
+<<<<<<< HEAD
+        TextView mGernericName = (TextView) rootView.findViewById(R.id.medicine_gerneric_name_textview);
+        mGernericName.setText(medicine.getGenericName());
+
+=======
+>>>>>>> parent of 830921a... added comments to the medicineList, quiz, and the sort Dialog, MTD
+=======
+>>>>>>> parent of 9408ccb... modified fragment_card_back.xml. change somecode in cardBackFragment.java to work with new UI.
         TextView mBrandName = (TextView) rootView.findViewById(R.id.medicine_brand_name_textview);
         mBrandName.setText("Brand Name: " + medicine.getBrandName());
 

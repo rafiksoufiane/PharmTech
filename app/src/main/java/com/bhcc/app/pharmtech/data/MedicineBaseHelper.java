@@ -16,7 +16,8 @@ import java.io.OutputStream;
 
 public class MedicineBaseHelper extends SQLiteOpenHelper {
 
-    private static String DB_NAME = "TopDrugs.db";
+    private static String DB_NAME = "DRUGS.db";
+
 
     private SQLiteDatabase myDataBase;
 

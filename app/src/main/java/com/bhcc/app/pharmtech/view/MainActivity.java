@@ -12,6 +12,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -47,6 +48,11 @@ public class MainActivity extends AppCompatActivity
         setUpToolbar();
         loadDefaultFragment();
         createReviewFile();
+
+
+        // setting up initial word of the day
+        DrugOfTheDayFragment drugOfTheDayFrag = new DrugOfTheDayFragment();
+        drugOfTheDayFrag.show(getSupportFragmentManager(),"");
     }
 
     /**

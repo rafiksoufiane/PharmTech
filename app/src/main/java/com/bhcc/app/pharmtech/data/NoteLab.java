@@ -30,7 +30,7 @@ public class NoteLab {
     private static NoteLab NoteLab;
     private Context mContext;
     private SQLiteDatabase mDatabase;
-    private static String DB_NAME = "TopDrugs.db";
+    private static String DB_NAME = "DRUGS.db";
 
     /**
      *

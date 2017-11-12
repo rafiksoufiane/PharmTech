@@ -11,21 +11,31 @@
                                                  android:layout_height="match_parent"
                                                  android:orientation="horizontal">
 
-        <ImageView
+        <View
             android:id="@+id/medicine_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/shape_circle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_action_name"/>
+            android:layout_marginLeft="16dp"/>
+
+
+        <TextView
+            android:id="@+id/textView_firstLetter"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="O"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="16dp"/>
 
         <TextView
             android:id="@+id/medicine_id"
@@ -49,13 +59,13 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginBottom="16dp"
-            android:layout_marginLeft="@dimen/text_margin"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:textAppearance="?attr/textAppearanceListItem"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/halfGuideline"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="16dp"/>
 
         <android.support.constraint.Guideline
             android:id="@+id/halfGuideline"

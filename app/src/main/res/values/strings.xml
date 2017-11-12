@@ -14,12 +14,9 @@
     <string name="search">Search</string>
     <string name="clear_search">Clear Search</string>
 
-<<<<<<< HEAD
     <string name="ascending">Ascending</string>
     <string name="descending">Descending</string>
-<<<<<<< HEAD
-    <string name="drug_id">Generic Name</string>
-    <string name="drug_name">Brand Name</string>
+
     <string name="purpose">Purpose</string>
     <string name="category">Category</string>
     <string name="dea_schedule">Dea Schedule</string>
@@ -33,6 +30,6 @@
 >>>>>>> parent of 9408ccb... modified fragment_card_back.xml. change somecode in cardBackFragment.java to work with new UI.
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="drug_id">Drug ID</string>
-    <string name="drug_name">Drug Name</string>
+    <string name="drug_id">Generic Name</string>
+    <string name="drug_name">Brand Name</string>
 </resources>

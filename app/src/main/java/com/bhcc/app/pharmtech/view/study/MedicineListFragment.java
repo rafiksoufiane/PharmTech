@@ -6,6 +6,8 @@ import com.bhcc.app.pharmtech.data.MedicineSchema;
 import com.bhcc.app.pharmtech.data.model.Medicine;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class MedicineListFragment extends Fragment {
@@ -44,6 +47,7 @@ public class MedicineListFragment extends Fragment {
 
     /**
      * To set up views
+     *
      * @param inflater
      * @param container
      * @param savedInstanceState
@@ -51,7 +55,7 @@ public class MedicineListFragment extends Fragment {
      */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_medicine_list, container, false);
         medicineListRecyclerView = (RecyclerView) view.findViewById(R.id.medicine_recycler_view);
         medicineListRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -63,10 +67,10 @@ public class MedicineListFragment extends Fragment {
     }
 
     /**
-     *  Added the SearchView interface to the app.
-     *  The purpose of having a search view is for the user
-     *  to be able to search for a certain drug in the list that
-     *  he/she wants to review.
+     * Added the SearchView interface to the app.
+     * The purpose of having a search view is for the user
+     * to be able to search for a certain drug in the list that
+     * he/she wants to review.
      *
      * @param menu
      * @param menuInflater
@@ -154,7 +158,6 @@ public class MedicineListFragment extends Fragment {
     }
 
 
-
     /**
      * To update UI
      */
@@ -172,12 +175,15 @@ public class MedicineListFragment extends Fragment {
         // views
         private TextView idTextView;
         private TextView nameTextView;
+        private TextView firstLetterTextView;
+        private View medicinIconView;
 
         // medicine
         private Medicine medicine;
 
         /**
          * Constructor
+         *
          * @param itemView
          */
         public MedicineHolder(View itemView) {
@@ -186,10 +192,13 @@ public class MedicineListFragment extends Fragment {
             // link variables to widgets
             idTextView = (TextView) itemView.findViewById(R.id.medicine_id);
             nameTextView = (TextView) itemView.findViewById(R.id.medicine_name);
+            firstLetterTextView = (TextView) itemView.findViewById(R.id.textView_firstLetter);
+            medicinIconView = itemView.findViewById(R.id.medicine_icon);
         }
 
         /**
          * To set up each holder w/ data
+         *
          * @param medicine
          */
         public void bindMedicine(Medicine medicine) {
@@ -197,10 +206,15 @@ public class MedicineListFragment extends Fragment {
             this.medicine = medicine;
             idTextView.setText(this.medicine.getGenericName());
             nameTextView.setText("( " + this.medicine.getBrandName() + " )");
+            firstLetterTextView.setText(this.medicine.getGenericName().charAt(0) + "");
+            GradientDrawable drawable = (GradientDrawable) medicinIconView.getBackground();
+            Random rnd = new Random();
+            drawable.setColor(Color.argb(200, rnd.nextInt(125), rnd.nextInt(125), rnd.nextInt(125)));
         }
 
         /**
          * To set up OnClickListener to each holder
+         *
          * @param v
          */
         @Override
@@ -224,6 +238,7 @@ public class MedicineListFragment extends Fragment {
 
         /**
          * Constructor
+         *
          * @param medicines
          */
         public MedicineAdapter(List<Medicine> medicines) {
@@ -232,6 +247,7 @@ public class MedicineListFragment extends Fragment {
 
         /**
          * To create a holder
+         *
          * @param parent
          * @param viewType
          * @return
@@ -245,6 +261,7 @@ public class MedicineListFragment extends Fragment {
 
         /**
          * To bind a holder
+         *
          * @param holder
          * @param position
          */
@@ -257,6 +274,7 @@ public class MedicineListFragment extends Fragment {
 
         /**
          * get size of the list
+         *
          * @return
          */
         @Override

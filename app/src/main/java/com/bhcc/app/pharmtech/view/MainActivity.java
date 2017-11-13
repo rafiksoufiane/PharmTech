@@ -50,9 +50,6 @@ public class MainActivity extends AppCompatActivity
         createReviewFile();
 
 
-        // setting up initial word of the day
-        DrugOfTheDayFragment drugOfTheDayFrag = new DrugOfTheDayFragment();
-        drugOfTheDayFrag.show(getSupportFragmentManager(),"");
     }
 
     /**

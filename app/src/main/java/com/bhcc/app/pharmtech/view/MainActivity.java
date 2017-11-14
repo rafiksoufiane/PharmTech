@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity
 
     public DrugOfTheDay mDrugOfTheDay;
     public String mGenericNameOfDrugOfTheDay;
+    public String mBrandNameOfDrugOfTheDay;
+    public String mPurposeOfDrugOfTheDay;
 
     DrawerLayout drawerLayout;
     @Override
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity
          * Dialog (Pop-up) window that will display the word of the day
          */
 
+        theDrugOfDay();
         final Dialog dialog = new Dialog(MainActivity.this);
         // Include dialog.xml file
         dialog.setContentView(R.layout.drugoftheday);
@@ -70,9 +73,10 @@ public class MainActivity extends AppCompatActivity
         dialog.setTitle("Custom Dialog");
         // set values for custom dialog components - text, image and button
         TextView text = (TextView) dialog.findViewById(R.id.textDialog);
-        text.setText("Drug of the day");
+        text.setText("\n\nGeneric Name: " + mGenericNameOfDrugOfTheDay
+        + "\n\nBrand Name: " + mBrandNameOfDrugOfTheDay + "\n\nPurpose: " + mPurposeOfDrugOfTheDay + "\n\n");
         ImageView image = (ImageView) dialog.findViewById(R.id.imageDialog);
-        image.setImageResource(R.drawable.pill);
+        image.setImageResource(R.drawable.bluepill);
         dialog.show();
 
 
@@ -127,21 +131,6 @@ public class MainActivity extends AppCompatActivity
 
         if (itemId == R.id.drugoftheday) {
 
-            try {
-                mDrugOfTheDay = new DrugOfTheDay(this);
-                Cursor res = mDrugOfTheDay.getDrugOfDay();
-                if (res.getCount() == 0) {
-                }
-
-                StringBuffer buffer = new StringBuffer();
-                while (res.moveToNext()) {
-                    mGenericNameOfDrugOfTheDay = res.getString(0);
-                }
-            }
-            catch(Exception e)
-            {
-                System.out.println(mGenericNameOfDrugOfTheDay + e.toString());
-            }
             Intent i = CardActivity.newIntent(getApplicationContext(), mGenericNameOfDrugOfTheDay);
             startActivity(i);
 
@@ -152,6 +141,25 @@ public class MainActivity extends AppCompatActivity
         return false;
     }
 
+    private void theDrugOfDay(){
+        try {
+            mDrugOfTheDay = new DrugOfTheDay(this);
+            Cursor res = mDrugOfTheDay.getDrugOfDay();
+            if (res.getCount() == 0) {
+            }
+
+            StringBuffer buffer = new StringBuffer();
+            while (res.moveToNext()) {
+                mGenericNameOfDrugOfTheDay = res.getString(0);
+                mBrandNameOfDrugOfTheDay = res.getString(1);
+                mPurposeOfDrugOfTheDay = res.getString(2);
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(mGenericNameOfDrugOfTheDay + e.toString());
+        }
+    }
     private boolean closeDrawer() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);

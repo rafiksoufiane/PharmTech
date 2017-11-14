@@ -52,7 +52,7 @@ public class DrugOfTheDay extends SQLiteOpenHelper {
 
     public Cursor getDrugOfDay() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT GenericName FROM TopDrugs WHERE TopDrugs.wasDrugOfDay LIKE 'NO'  ORDER BY RANDOM() LIMIT 1",null);
+        Cursor res = db.rawQuery("SELECT * FROM TopDrugs WHERE TopDrugs.wasDrugOfDay LIKE 'NO'  ORDER BY RANDOM() LIMIT 1",null);
         return res;
     }
 

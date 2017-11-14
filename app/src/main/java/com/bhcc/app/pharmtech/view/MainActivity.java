@@ -1,5 +1,6 @@
 package com.bhcc.app.pharmtech.view;
 
+import com.bhcc.app.pharmtech.DrugOfTheDay;
 import com.bhcc.app.pharmtech.R;
 import com.bhcc.app.pharmtech.data.MedicineLab;
 import com.bhcc.app.pharmtech.view.filter.FilterFragment;
@@ -11,6 +12,7 @@ import com.bhcc.app.pharmtech.view.study.MedicineListFragment;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity
 
     private static final int ASCENDING_ID = 0;
     private static final int DESCENDING_ID = 1;
+
+    public DrugOfTheDay mDrugOfTheDay;
+    public String mGenericNameOfDrugOfTheDay;
 
     DrawerLayout drawerLayout;
     @Override
@@ -121,7 +126,23 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (itemId == R.id.drugoftheday) {
-            Intent i = CardActivity.newIntent(getApplicationContext(), "Adalimumab");
+
+            try {
+                mDrugOfTheDay = new DrugOfTheDay(this);
+                Cursor res = mDrugOfTheDay.getDrugOfDay();
+                if (res.getCount() == 0) {
+                }
+
+                StringBuffer buffer = new StringBuffer();
+                while (res.moveToNext()) {
+                    mGenericNameOfDrugOfTheDay = res.getString(0);
+                }
+            }
+            catch(Exception e)
+            {
+                System.out.println(mGenericNameOfDrugOfTheDay + e.toString());
+            }
+            Intent i = CardActivity.newIntent(getApplicationContext(), mGenericNameOfDrugOfTheDay);
             startActivity(i);
 
         }

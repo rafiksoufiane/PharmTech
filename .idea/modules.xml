@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PharmTech.iml" filepath="$PROJECT_DIR$/PharmTech.iml" />
       <module fileurl="file://$PROJECT_DIR$/PharmTechApp.iml" filepath="$PROJECT_DIR$/PharmTechApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PharmTechUpdated.iml" filepath="$PROJECT_DIR$/.idea/PharmTechUpdated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

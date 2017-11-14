@@ -6,9 +6,11 @@ import com.bhcc.app.pharmtech.view.filter.FilterFragment;
 import com.bhcc.app.pharmtech.view.navigation.ReplaceFragmentCommand;
 import com.bhcc.app.pharmtech.view.quiz.SelectQuizFragment;
 import com.bhcc.app.pharmtech.view.review.ReviewFragment;
+import com.bhcc.app.pharmtech.view.study.CardActivity;
 import com.bhcc.app.pharmtech.view.study.MedicineListFragment;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -22,6 +24,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -48,6 +51,24 @@ public class MainActivity extends AppCompatActivity
         setUpToolbar();
         loadDefaultFragment();
         createReviewFile();
+
+
+        /**
+         * author: Soufiane Rafik
+         * Dialog (Pop-up) window that will display the word of the day
+         */
+
+        final Dialog dialog = new Dialog(MainActivity.this);
+        // Include dialog.xml file
+        dialog.setContentView(R.layout.drugoftheday);
+        // Set dialog title
+        dialog.setTitle("Custom Dialog");
+        // set values for custom dialog components - text, image and button
+        TextView text = (TextView) dialog.findViewById(R.id.textDialog);
+        text.setText("Drug of the day");
+        ImageView image = (ImageView) dialog.findViewById(R.id.imageDialog);
+        image.setImageResource(R.drawable.pill);
+        dialog.show();
 
 
     }
@@ -97,6 +118,12 @@ public class MainActivity extends AppCompatActivity
 
         if (itemId == R.id.review) {
             ReplaceFragmentCommand.startNewFragment(this, new ReviewFragment(), false);
+        }
+
+        if (itemId == R.id.drugoftheday) {
+            Intent i = CardActivity.newIntent(getApplicationContext(), "Adalimumab");
+            startActivity(i);
+
         }
 
         closeDrawer();

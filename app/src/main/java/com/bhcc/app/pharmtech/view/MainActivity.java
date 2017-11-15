@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity
 
     private void theDrugOfDay(){
         try {
+         /*
             mDrugOfTheDay = new DrugOfTheDay(this);
             Cursor res = mDrugOfTheDay.getDrugOfDay();
             if (res.getCount() == 0) {
@@ -153,7 +154,8 @@ public class MainActivity extends AppCompatActivity
                 mGenericNameOfDrugOfTheDay = res.getString(0);
                 mBrandNameOfDrugOfTheDay = res.getString(1);
                 mPurposeOfDrugOfTheDay = res.getString(2);
-            }
+
+            }*/
         }
         catch(Exception e)
         {

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '25'
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         applicationId "com.bhcc.app.pharmtech"
@@ -30,4 +30,5 @@ dependencies {
     compile 'com.github.clans:fab:1.6.4'
     compile 'com.android.support:support-v13:24.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
 }

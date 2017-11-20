@@ -199,6 +199,7 @@ public class SelectQuizFragment extends Fragment {
         ArrayList<String> spinnerArray = new ArrayList<String>();
         spinnerArray.add("Multiple choice");
         spinnerArray.add("Fill in the blank");
+        spinnerArray.add("Mix and match");
 
 
         final Spinner spChooseQuizStyle = (Spinner) rootView.findViewById(R.id.quiz_style);
@@ -257,8 +258,13 @@ public class SelectQuizFragment extends Fragment {
                                 .newInstance(topicList, fieldList, numOfQuestions);
                         ReplaceFragmentCommand
                                 .startNewFragment(getActivity(), fragment, true);
-                    }
+                    } else if (spChooseQuizStyle.getSelectedItem().toString().equals("Mix and match")) {
+                        QuizMixAndMatchFragment fragment = QuizMixAndMatchFragment
+                                .newInstance(topicList, fieldList, numOfQuestions);
+                        ReplaceFragmentCommand
+                                .startNewFragment(getActivity(), fragment, true);
 
+                    }
                 }
             }
         });

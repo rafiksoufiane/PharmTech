@@ -295,10 +295,19 @@ public class TrueFalseQuizFragment extends Fragment{
             /////////////////// QUESTION /////////////////////////
             // random the question
             int randomField = Math.abs(randomNumber.nextInt() % fieldList.length);
+            int randomQuestion = Math.abs(randomNumber.nextInt() % 1);
             Log.i("test1", String.valueOf(randomField));
 
-            strQuestion[index] = "The " + fieldList[randomField] + " of " // as long answer is at the back managable
-                    +  medicines.get(index).getGenericName() + " is ";    // possible to randomize asking format
+            if (randomQuestion == 0) {
+                strQuestion[index] = "The " + fieldList[randomField] + " of " // as long answer is at the back managable
+                        + medicines.get(index).getGenericName() + " is ";    // possible to randomize asking format
+                // example: The Purpose of atorvastatin is _ possible answer inserted here __
+            }
+            else {
+                strQuestion[index] = medicines.get(index).getGenericName() + " has a/an "
+                        + fieldList[randomField] + " of ";
+                // example: atorvastatin has a/an category of ___
+            }
 
 
             // randomizing answer with 1/5 chance
@@ -322,7 +331,11 @@ public class TrueFalseQuizFragment extends Fragment{
             // inserts last part of question
             if (fieldList[randomField].equalsIgnoreCase(MedicineSchema.MedicineTable.Cols.DEASCH))
             {
-                strQuestion[index] += presentedMedicine.getDeaSch();
+                if (presentedMedicine.getDeaSch().equalsIgnoreCase("-")) // if it doesn't have a DEA Schedule
+                strQuestion[index] =  medicines.get(index).getGenericName() + " does not have a DEA Schedule.";
+                else
+                    strQuestion[index] += presentedMedicine.getDeaSch();
+
                 if (presentedMedicine.getDeaSch().equalsIgnoreCase(medicines.get(index).getDeaSch()))
                     correctChoice[index] = 0; // // answer is true
                 else
@@ -335,6 +348,9 @@ public class TrueFalseQuizFragment extends Fragment{
             }
             else if (fieldList[randomField].equalsIgnoreCase(MedicineSchema.MedicineTable.Cols.SPECIAL))
             {
+                if (presentedMedicine.getSpecial().equalsIgnoreCase(""))
+                    strQuestion[index] = medicines.get(index).getGenericName() + " does not have a Special condition.";
+                else
                 strQuestion[index] += presentedMedicine.getSpecial();
                 correctChoice[index] =  presentedMedicine.getSpecial().equalsIgnoreCase(medicines.get(index).getSpecial()) ? 0 : 1;
             }

@@ -27,4 +27,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="drug_id">Generic Name</string>
     <string name="drug_name">Brand Name</string>
+    <string name="legal_string">All material is copyright 2017 Soufiane, Mussie, Steven, and Xianben</string>
+    <string name="about_string">A project created by Soufiane, Mussie, Steven, and Xianben to aid BHCC
+        Pharmacy students in their examinations. Features list of drugs, notecards, several types
+     of quizzes, and even pronounciations via audio playback.</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.bhcc.app.pharmtech.view;
 
+import com.bhcc.app.pharmtech.AboutFragment;
 import com.bhcc.app.pharmtech.DrugOfTheDay;
+import com.bhcc.app.pharmtech.LegalFragment;
 import com.bhcc.app.pharmtech.R;
 import com.bhcc.app.pharmtech.data.MedicineLab;
 import com.bhcc.app.pharmtech.view.filter.FilterFragment;
@@ -135,6 +137,17 @@ public class MainActivity extends AppCompatActivity
             Intent i = CardActivity.newIntent(getApplicationContext(), mGenericNameOfDrugOfTheDay);
             startActivity(i);
 
+        }
+        /**
+         * Created by Steven. these two if blocks will detect if the user selects "LEGAL"
+         * or "ABOUT" on the menu. This was added to the program, as it was never completed the year before.
+         * each option has its own XML layout, and associated Fragment.
+         */
+        if (itemId == R.id.legal) {
+            ReplaceFragmentCommand.startNewFragment(this, new LegalFragment(), false);
+        }
+        if (itemId == R.id.about){
+            ReplaceFragmentCommand.startNewFragment(this, new AboutFragment(), false);
         }
 
         closeDrawer();

@@ -79,15 +79,13 @@ public class CardFrontFragment extends Fragment {
         try {
             String fileName = medicine.getGenericName().toLowerCase();
             fileName = fileName.replace(" + ", "/");
-            Log.i("file", "this file initially: " + fileName);
-
             if (fileName.contains("/")) {
                 StringBuilder stringBuilder = new StringBuilder(fileName);
                 stringBuilder.deleteCharAt(fileName.indexOf('/'));
                 if (fileName.contains("-"))
                     stringBuilder.deleteCharAt(fileName.indexOf('-') - 1);
                 fileName = stringBuilder.toString();
-                Log.i("audio", "this file not present: " + fileName);
+
             }
             int resID = getResources().getIdentifier(fileName, "raw", getActivity().getPackageName());
             final MediaPlayer myMediaPlayer = MediaPlayer.create(getActivity(), resID);

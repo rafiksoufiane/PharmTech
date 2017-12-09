@@ -23,6 +23,9 @@ public class CardFrontFragment extends Fragment {
     // Medicine
     private Medicine medicine;
 
+    public CardFrontFragment() {
+    }
+
     /**
      * To create a new fragment
      *
@@ -35,9 +38,6 @@ public class CardFrontFragment extends Fragment {
         CardFrontFragment fragment = new CardFrontFragment();  // create a new card front fragment
         fragment.setArguments(args);  // put arguments to a fragment
         return fragment;
-    }
-
-    public CardFrontFragment() {
     }
 
     /**
@@ -78,18 +78,25 @@ public class CardFrontFragment extends Fragment {
 
         try {
             String fileName = medicine.getGenericName().toLowerCase();
+            fileName = fileName.replace(" + ", "/");
+            Log.i("file", "this file initially: " + fileName);
+
             if (fileName.contains("/")) {
                 StringBuilder stringBuilder = new StringBuilder(fileName);
                 stringBuilder.deleteCharAt(fileName.indexOf('/'));
-                stringBuilder.deleteCharAt(fileName.indexOf('-') - 1);
+                if (fileName.contains("-"))
+                    stringBuilder.deleteCharAt(fileName.indexOf('-') - 1);
                 fileName = stringBuilder.toString();
+                Log.i("audio", "this file not present: " + fileName);
             }
             int resID = getResources().getIdentifier(fileName, "raw", getActivity().getPackageName());
             final MediaPlayer myMediaPlayer = MediaPlayer.create(getActivity(), resID);
             if (myMediaPlayer.getDuration() == 0) {
+
                 playAudioButton.setVisibility(View.INVISIBLE);
             }
         } catch (Exception ex) {
+            Log.i("audio", "exception this file not present: " + ex.getLocalizedMessage());
             playAudioButton.setVisibility(View.INVISIBLE);
         }
 
@@ -99,16 +106,20 @@ public class CardFrontFragment extends Fragment {
             public void onClick(View v) {
                 try {
                     String fileName = medicine.getGenericName().toLowerCase();
+                    fileName = fileName.replace(" + ", "/");
+
                     if (fileName.contains("/")) {
                         StringBuilder stringBuilder = new StringBuilder(fileName);
                         stringBuilder.deleteCharAt(fileName.indexOf('/'));
-                        stringBuilder.deleteCharAt(fileName.indexOf('-') - 1);
+                        if (fileName.contains("-"))
+                            stringBuilder.deleteCharAt(fileName.indexOf('-') - 1);
                         fileName = stringBuilder.toString();
                         Log.i("test", fileName);
                     }
                     int resID = getResources().getIdentifier(fileName, "raw", getActivity().getPackageName());
                     final MediaPlayer myMediaPlayer = MediaPlayer.create(getActivity(), resID);
                     myMediaPlayer.start();
+                    Log.i("audio", "now playing " + fileName);
                 } catch (Exception ex) {
                     Toast.makeText(getActivity(), "No audio file for this medicine", Toast.LENGTH_SHORT).show();
                 }

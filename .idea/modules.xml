@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PharmTech.iml" filepath="$PROJECT_DIR$/.idea/PharmTech.iml" />
       <module fileurl="file://$PROJECT_DIR$/PharmTech.iml" filepath="$PROJECT_DIR$/PharmTech.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\muste\OneDrive\Documents\GitHub\PharmTech\.idea\PharmTech.iml" filepath="C:\Users\muste\OneDrive\Documents\GitHub\PharmTech\.idea\PharmTech.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

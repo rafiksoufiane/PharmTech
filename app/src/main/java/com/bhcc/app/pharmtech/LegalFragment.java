@@ -36,7 +36,7 @@ public class LegalFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tvLegal.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+        tvLegal.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
         tvLegal.setPadding(10, 20, 10, 20);
         tvLegal.setGravity(Gravity.CENTER_HORIZONTAL);
 

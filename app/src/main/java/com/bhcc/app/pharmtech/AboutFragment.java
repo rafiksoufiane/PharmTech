@@ -36,7 +36,7 @@ public class AboutFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tvAbout.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+        tvAbout.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
         tvAbout.setPadding(10, 20, 10, 20);
         tvAbout.setGravity(Gravity.CENTER_HORIZONTAL);
 

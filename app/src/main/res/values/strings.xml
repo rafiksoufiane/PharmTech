@@ -14,7 +14,62 @@
     <string name="search">Search</string>
     <string name="clear_search">Clear Search</string>
 
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!--<string name="drug_id">Generic Name</string>
+    <string name="drug_name">Brand Name</string>-->
+    <string name="purpose">Purpose</string>
+    <string name="category">Category</string>
+    <string name="dea_schedule">Dea Schedule</string>
+    <string name="special">Special</string>
+    <string name="study_topic">Study Topic</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drug_id">Generic Name</string>
+    <string name="drug_name">Brand Name</string>
+    <string name="legal_string"><b><u>Disclaimer</u></b>\n
+        \nThis mobile app was created by Bunker Hill Community College Android Mobile App students for informational and educational use only.
+        This app is intended for use by students of the Bunker Hill Community College Pharmacy Technology Program and is a pilot application.
+        Please be advised that this content may include errors.
+
+        \n\n<b><u>Funding</u></b>\n
+        \nThis workforce solution was funded by a grant awarded by the U.S. Department of Labor’s Employment and Training Administration.
+        The solution was created by the grantee and does not necessarily reflect the official position of the U.S. Department of labor.
+        The Department of Labor makes no guarantees, warranties, or assurances of any kind, express or implied, with respect to such information,
+        including any information on linked sites and including, but not limited to, accuracy of the information or its completeness, timeliness, usefulness, adequacy, continued availability,
+        or ownership.
+
+        \n\n<b><u>Equal Opportunity</u></b>\n
+        \nIt is against the law for this recipient of Federal financial assistance to discriminate on the basis of race, color, religion, sex, national origin, age, disability, political affiliation or belief,
+        or citizenship/status as a lawfully admitted immigrant authorized to work in the U.S. Auxiliary aids and services are available upon request to individuals with disabilities.
+        If you think you have been subjected to discrimination, you may file a complaint within 180 days with either the recipient’s Equal Opportunity Officer or the Director, Civil Rights Center (CRC),
+        U.S. Department of Labor, 200 Constitution Avenue NW, Room N-4123, Washington, DC.
+</string>
+    <string name="about_string">A project created by Soufiane Rafik, Mussie Demisse, Steven Cruickshank, and Xianben Zhen to aid BHCC
+        Pharmacy students in their examinations. Features list of drugs, notecards, several types
+     of quizzes, and even pronounciations via audio playback.
+
+        <b><u>\n\nA special thanks to previous authors:\n</u></b>
+        Saadia Achouham\n
+        Ruchelly P. Almeida\n
+        Oleksii	Butakov\n
+        Lounis Idir\n
+        Evan Y. Liu\n
+        Shradha	Luintel\n
+        Karlisha McQuiter\n
+        Thomas A. Newell\n
+        Alexandre Pereira\n
+        David C. Powell\n
+        James Sacchetti\n
+        Prakrit	Saetang\n
+        Fikir G. Yilma\n
+        Shipeng	Yu\n
+        Edgard	Zafack\n\n
+
+        <b><u>\nA special thanks to:\n</u></b>
+        Big Nerd Ranch, and their guide to Android Programming\n
+        http://clincalc.com/PronounceTop200Drugs/ for some audio files used\n\n
+
+
+    </string>
 </resources>

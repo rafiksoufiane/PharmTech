@@ -1,17 +1,24 @@
 package com.bhcc.app.pharmtech.view;
 
+import com.bhcc.app.pharmtech.AboutFragment;
+import com.bhcc.app.pharmtech.DrugOfTheDay;
+import com.bhcc.app.pharmtech.LegalFragment;
 import com.bhcc.app.pharmtech.R;
 import com.bhcc.app.pharmtech.data.MedicineLab;
 import com.bhcc.app.pharmtech.view.filter.FilterFragment;
 import com.bhcc.app.pharmtech.view.navigation.ReplaceFragmentCommand;
 import com.bhcc.app.pharmtech.view.quiz.SelectQuizFragment;
 import com.bhcc.app.pharmtech.view.review.ReviewFragment;
+import com.bhcc.app.pharmtech.view.study.CardActivity;
 import com.bhcc.app.pharmtech.view.study.MedicineListFragment;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -21,6 +28,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -39,7 +47,13 @@ public class MainActivity extends AppCompatActivity
     private static final int ASCENDING_ID = 0;
     private static final int DESCENDING_ID = 1;
 
+    public DrugOfTheDay mDrugOfTheDay;
+    public String mGenericNameOfDrugOfTheDay;
+    public String mBrandNameOfDrugOfTheDay;
+    public String mPurposeOfDrugOfTheDay;
+
     DrawerLayout drawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +61,28 @@ public class MainActivity extends AppCompatActivity
         setUpToolbar();
         loadDefaultFragment();
         createReviewFile();
+
+
+        /**
+         * author: Soufiane Rafik
+         * Dialog (Pop-up) window that will display the word of the day
+         */
+
+        theDrugOfDay();
+        final Dialog dialog = new Dialog(MainActivity.this);
+        // Include dialog.xml file
+        dialog.setContentView(R.layout.drugoftheday);
+        // Set dialog title
+        dialog.setTitle("Custom Dialog");
+        // set values for custom dialog components - text, image and button
+        TextView text = (TextView) dialog.findViewById(R.id.textDialog);
+        text.setText("\n\nGeneric Name: " + mGenericNameOfDrugOfTheDay
+        + "\n\nBrand Name: " + mBrandNameOfDrugOfTheDay + "\n\nPurpose: " + mPurposeOfDrugOfTheDay + "\n\n");
+        ImageView image = (ImageView) dialog.findViewById(R.id.imageDialog);
+        image.setImageResource(R.drawable.bluepill);
+        dialog.show();
+
+
     }
 
     /**
@@ -96,11 +132,50 @@ public class MainActivity extends AppCompatActivity
             ReplaceFragmentCommand.startNewFragment(this, new ReviewFragment(), false);
         }
 
+        if (itemId == R.id.drugoftheday) {
+
+            Intent i = CardActivity.newIntent(getApplicationContext(), mGenericNameOfDrugOfTheDay);
+            startActivity(i);
+
+        }
+        /**
+         * Created by Steven. these two if blocks will detect if the user selects "LEGAL"
+         * or "ABOUT" on the menu. This was added to the program, as it was never completed the year before.
+         * each option has its own XML layout, and associated Fragment.
+         */
+        if (itemId == R.id.legal) {
+            ReplaceFragmentCommand.startNewFragment(this, new LegalFragment(), false);
+        }
+        if (itemId == R.id.about){
+            ReplaceFragmentCommand.startNewFragment(this, new AboutFragment(), false);
+        }
+
         closeDrawer();
 
         return false;
     }
 
+    private void theDrugOfDay(){
+        try {
+
+            mDrugOfTheDay = new DrugOfTheDay(this);
+            Cursor res = mDrugOfTheDay.getDrugOfDay();
+            if (res.getCount() == 0) {
+            }
+
+            StringBuffer buffer = new StringBuffer();
+            while (res.moveToNext()) {
+                mGenericNameOfDrugOfTheDay = res.getString(0);
+                mBrandNameOfDrugOfTheDay = res.getString(1);
+                mPurposeOfDrugOfTheDay = res.getString(2);
+
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(mGenericNameOfDrugOfTheDay + e.toString());
+        }
+    }
     private boolean closeDrawer() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);

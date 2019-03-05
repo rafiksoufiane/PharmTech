@@ -24,6 +24,10 @@
         android:id="@+id/sort"
         android:icon="@drawable/icn_sort_by_alpha"
         android:title="Sort"/>
+    <item
+        android:id="@+id/drugoftheday"
+        android:icon="@drawable/pill"
+        android:title="Drug of the day"/>
   </group>
   <group android:id="@+id/group_settings">
     <item

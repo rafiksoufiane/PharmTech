@@ -1,6 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/medicine_recycler_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto"
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="match_parent"
+                                                     android:orientation="horizontal"
+            android:background="@color/colorprimary_light">
+
+            <ImageView
+                android:id="@+id/medicine_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="@dimen/text_margin"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bluepill"/>
+
+            <TextView
+                android:id="@+id/medicine_id"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@id/medicine_icon"
+                android:text="@string/drug_id"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/cardview_dark_background"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/medicine_icon"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/medicine_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/medicine_id"
+                android:layout_alignBottom="@+id/medicine_id"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/drug_name"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@color/cardview_dark_background"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/halfGuideline"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="16dp"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/halfGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.55"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/medicine_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
+

@@ -67,7 +67,7 @@ public class ReviewFragment extends Fragment {
                 fileNames.add(temp);
                 Log.i("test5", temp);
 
-                // modify date & time
+                // modify date & time, and insert it into the string val
                 StringBuilder stringBuilder = new StringBuilder(temp);
                 stringBuilder.insert(2, '/');
                 stringBuilder.insert(5, '/');
@@ -98,7 +98,7 @@ public class ReviewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        // set up views
+        // set up views, specifically the recyclerview which shows quizzes
         View view = inflater.inflate(R.layout.fragment_review, container, false);
         quizListRecyclerView = (RecyclerView) view;
         quizListRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -114,7 +114,8 @@ public class ReviewFragment extends Fragment {
      */
     private void updateUI() {
 
-        // if no review in the file, show a warning toast
+        // if no review in the file, show a warning toast, saying the user
+        // needs to actually take a quiz in order to review something
         // otherwise, show the review list
         if (dateList.size() > 0) {
             quizListAdapter = new QuizListAdapter(dateList);
@@ -141,7 +142,8 @@ public class ReviewFragment extends Fragment {
          */
         public QuizListHolder(View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);  //set onclick listener to the override method
+            itemView.setOnClickListener(this);
+            //set onclick listener to the override method
             // link variables to widgets
             idTextView = (TextView) itemView.findViewById(R.id.quiz_review_id);
             nameTextView = (TextView) itemView.findViewById(R.id.quiz_review_date);
@@ -171,6 +173,7 @@ public class ReviewFragment extends Fragment {
                         fileDeleted.delete();
 
                         // Remove file name from the list
+                        //fyi getPosition appears to be deprecated -SC
                         fileNames.remove(getPosition());
 
                         // Write update file name list to the info file

@@ -1,13 +1,15 @@
 package com.bhcc.app.pharmtech.data;
 
-
-import com.bhcc.app.pharmtech.data.model.Medicine;
+//git test commit
+//steven testing git pushing
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
+import com.bhcc.app.pharmtech.data.model.Medicine;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -173,6 +175,7 @@ public class MedicineLab {
      * To get study topics
      * @return List of Study Topics
      */
+    //This is called by FilterFragment, when getting a list of study topics -sc
     public List<String> getStudyTopics() {
         MedicineCursorWrapper cursor = rawQueryCrimes(
                 "SELECT DISTINCT " + MedicineSchema.MedicineTable.Cols.STUDY_TOPIC + " FROM " +
@@ -237,6 +240,7 @@ public class MedicineLab {
      * @param whereArgs
      * @param orderBy
      */
+    //called by FilterFragment to returned SQL vals
     public void updateMedicineLab(String whereClause, String[] whereArgs, String orderBy) {
         MedicineCursorWrapper cursor = queryCrimes(whereClause, whereArgs, orderBy);
 

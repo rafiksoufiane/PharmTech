@@ -1,0 +1,9 @@
+com.bhcc.app.pharmtech
+com.bhcc.app.pharmtech.data
+com.bhcc.app.pharmtech.data.model
+com.bhcc.app.pharmtech.view
+com.bhcc.app.pharmtech.view.filter
+com.bhcc.app.pharmtech.view.navigation
+com.bhcc.app.pharmtech.view.quiz
+com.bhcc.app.pharmtech.view.review
+com.bhcc.app.pharmtech.view.study

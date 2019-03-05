@@ -26,6 +26,7 @@ import java.util.List;
 
 public class FilterFragment extends Fragment {
 
+
     private CheckBox checkAll;
     private LinearLayout linearLayout;
 
@@ -39,6 +40,8 @@ public class FilterFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //create a view with an inflator linked with the xml layout
+        //sets the layout member variable to the Linear Layout xml filter
         View view = inflater.inflate(R.layout.fragment_filter, container, false);
         linearLayout = (LinearLayout) view.findViewById(R.id.filter_activity_linear_layout);
         return view;
@@ -47,6 +50,9 @@ public class FilterFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        //a textview is created with properties, and added to the linearLayout
+        //member variable. used to let the user select topics of study.
         final TextView mSelectStudyTopicTextView = new TextView(getActivity());
         mSelectStudyTopicTextView.setText("Select Study Topics");
         mSelectStudyTopicTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
@@ -59,9 +65,10 @@ public class FilterFragment extends Fragment {
         final ArrayList<CheckBox> studyTopicCheckBox = new ArrayList<>();
 
         final MedicineLab medicineLab = MedicineLab.get(getActivity());
+        //// instantiate a list with study topics from MedicineLab
         List<String> studyTopic = medicineLab.getStudyTopics();
         Log.i("test", studyTopic.toString());
-
+        //a checkbox is created for each study topic
         for (int i = 0; i < studyTopic.size(); i++) {
             String topic = studyTopic.get(i);
             CheckBox checkBox = new CheckBox(getActivity());
@@ -72,6 +79,7 @@ public class FilterFragment extends Fragment {
         // to hold checked study topics
         final ArrayList<String> studyTopicCheckedList = new ArrayList<>();
 
+        //a loop of click listeners generated for each study topic
         for (int i = 0; i < studyTopicCheckBox.size(); i++) {
             studyTopicCheckBox.get(i).setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -98,6 +106,7 @@ public class FilterFragment extends Fragment {
         linearLayout.addView(checkAll);
 
         ///////////// UPDATE LIST ///////////////
+        //instantiate a button with necessary properties
         Button updateListButton = new Button(getActivity());
         updateListButton.setText("Update List");
         updateListButton.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -106,7 +115,7 @@ public class FilterFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                // error toast if there is no check box checked
+                // validator - error toast if there is no check box checked
                 if (studyTopicCheckedList.isEmpty()) {
                     Toast.makeText(getActivity(),
                             "Please select at least one STUDY TOPIC", Toast.LENGTH_SHORT).show();
@@ -114,7 +123,7 @@ public class FilterFragment extends Fragment {
                 else {
                     String[] topicList = toStringArray(studyTopicCheckedList);
 
-                    // get checked study topic and convert to where arguments
+                    // get checked study topic and convert to where arguments for SQL
                     String whereArgs = "(";
                     for (int i = 0; i < topicList.length; i++) {
                         whereArgs += "?";
@@ -142,14 +151,17 @@ public class FilterFragment extends Fragment {
      * @param checkBox
      * @param checkedList
      */
+    //
     public void onCheckboxClicked(CheckBox checkBox, ArrayList<String> checkedList) {
         // Is the view now checked?
         boolean checked = checkBox.isChecked();
 
         if (checked) {
+            //if checked, add it to a list
             checkedList.add(checkBox.getText().toString());
         }
         else {
+            //get rid of it
             checkedList.remove(checkBox.getText().toString());
             checkAll.setChecked(false);
         }
@@ -160,6 +172,7 @@ public class FilterFragment extends Fragment {
      * @param list
      * @return String[]
      */
+    //little method which converts a string array to an Arraylist of strings
     private String[] toStringArray(ArrayList<String> list) {
         String[] tempStrings = new String[list.size()];
         tempStrings = list.toArray(tempStrings);
